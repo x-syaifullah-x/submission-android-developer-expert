@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="detail">
+        <item name="layout_constrainedWidth">true</item>
+        <item name="corners">10</item>
+        <item name="android:layout_marginTop">@dimen/_2sdp</item>
+        <item name="use_gradient">true</item>
+    </style>
+
+    <style name="detail_left_content" parent="detail">
+        <item name="android:layout_marginStart">@dimen/_5sdp</item>
+        <item name="width_weight">.95</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+    <style name="detail_left" parent="detail_left_content">
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="detail_right_content" parent="detail">
+        <item name="android:layout_marginEnd">@dimen/_5sdp</item>
+        <item name="width_weight">1</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+    <style name="detail_right" parent="detail_right_content">
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

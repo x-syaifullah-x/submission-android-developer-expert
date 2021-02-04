@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.detail.DetailTvFragment">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.android.developer.expert.core.domain.model.DetailTvModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        setup_app_bar_activity="@{data.posterPath}"
+        setup_fab_detail_activity="@{data.favorite}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:barrierMargin="@dimen/_15sdp"
+                app:constraint_referenced_ids="original_language , user_score_content" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:barrierMargin="@dimen/_10sdp"
+                app:constraint_referenced_ids="overview_content,user_score_content" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/title"
+                style="@style/detail_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_title"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/title_content"
+                style="@style/detail_left_content"
+                set_title_collapsing_toolbar_in_fragment="@{data.title}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.title}"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/first_air_date"
+                style="@style/detail_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_first_air_date"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_content" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/first_air_date_content"
+                style="@style/detail_left_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.firstAirDate}"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_air_date" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/last_air_date"
+                style="@style/detail_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_last_air_date"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_air_date_content" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/last_air_date_content"
+                style="@style/detail_left_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.lastAirDate}"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/last_air_date" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/original_language"
+                style="@style/detail_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_original_language"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/last_air_date_content" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/original_language_content"
+                style="@style/detail_left_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.originalLanguage}"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/original_language" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/user_score"
+                style="@style/detail_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_user_score"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/original_language_content" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/user_score_content"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:isIndicator="true"
+                android:numStars="10"
+                android:rating="@{data.voteAverage}"
+                android:stepSize="0.0"
+                app:layout_constraintEnd_toStartOf="@id/barrier_1"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_score"
+                tools:rating="5" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/genre_movie"
+                style="@style/detail_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_genre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/barrier_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/genre_content"
+                style="@style/detail_right_content"
+                set_genres="@{data.genres}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/barrier_1"
+                app:layout_constraintTop_toBottomOf="@id/genre_movie" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/overview"
+                style="@style/detail_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_overview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/barrier_1"
+                app:layout_constraintTop_toBottomOf="@+id/genre_content" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/overview_content"
+                style="@style/detail_right_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.overview}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/barrier_1"
+                app:layout_constraintTop_toBottomOf="@+id/overview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/recommendations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/recommendations"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold"
+                android:visibility="@{data.recommendation.empty ? View.GONE : View.VISIBLE}"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier_2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/movie_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:visibility="@{data.recommendation.empty ? View.GONE : View.VISIBLE}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommendations"
+                tools:listitem="@layout/item_recommendation"
+                tools:visibility="visible" />
+
+            <FrameLayout
+                android:id="@+id/place_holder_recommendation_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="@{data.recommendation == null ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommendations">
+
+                <include layout="@layout/place_holder_recommendations" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

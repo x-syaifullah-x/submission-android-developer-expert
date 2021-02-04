@@ -1,0 +1,5 @@
+<resources>
+    <string name="title_favorite">Title</string>
+    <string name="tab_1_movies">Movies</string>
+    <string name="tab_2_tv">Tv</string>
+</resources>

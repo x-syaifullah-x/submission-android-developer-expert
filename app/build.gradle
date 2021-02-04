@@ -1,0 +1,94 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "kotlin-parcelize"
+}
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.android.developer.expert"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+//            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
+
+    dynamicFeatures = [':favorite']
+}
+
+dependencies {
+    api project(":core")
+
+    androidTestImplementation deps.junit
+    androidTestImplementation deps.core_testing
+    androidTestImplementation deps.androidx_test.ext_junit
+    androidTestImplementation deps.androidx_test.rules
+    androidTestImplementation deps.androidx_test.espresso_core
+    androidTestImplementation deps.androidx_test.espresso_contrib
+    androidTestImplementation deps.androidx_test.espresso_idling_resource
+
+    testImplementation deps.mockito.mockitokotlin2_mockito_kotlin
+    testImplementation deps.mockito.core
+    testImplementation deps.mockito.inline
+    testImplementation deps.androidx_test.ext_junit
+    testImplementation deps.androidx_test.core
+    testImplementation deps.core_testing
+    testImplementation deps.robolectric.robolectric
+    testImplementation deps.robolectric.shadows_multidex
+
+    api deps.androidx.legacy_support
+    api deps.androidx.core_ktx
+    api deps.androidx.appcompat
+    api deps.androidx.constraintlayout
+    api deps.androidx.navigation_fragment_ktx
+    api deps.android_material
+    api deps.intuit.sdp
+    api deps.intuit.ssp
+    api deps.loaderviewlibrary
+    api deps.lottie
+    api deps.play_core
+
+    implementation deps.androidx.navigation_dynamic_features_fragment
+    implementation deps.androidx.navigation_ui_ktx
+    implementation deps.androidx.palette_ktx
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.viewmodel
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.livedata
+    implementation deps.sqlite_ktx
+    implementation deps.android_database_sqlcipher
+    implementation deps.glide.glide
+    implementation deps.glide.okhttp3_integration
+
+    kapt deps.glide.compiler
+    kapt deps.dagger.compiler
+    kapt deps.room.compiler
+}
