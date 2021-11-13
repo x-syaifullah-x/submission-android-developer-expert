@@ -7,6 +7,54 @@ jobs:
     resource_class: large
     steps:
       - checkout
+#      - run:
+#          name: create avd
+#          command: |
+#            SYSTEM_IMAGES="system-images;android-30;google_apis;x86_64"
+#            sdkmanager "$SYSTEM_IMAGES"
+#            echo "no" | avdmanager --verbose create avd -n test -k "$SYSTEM_IMAGES"
+#
+#      - run:
+#          name: launch emulator
+#          command: |
+#            emulator -avd test -delay-adb -verbose -no-window -noaudio -no-boot-anim -memory 4096 -accel on
+#          background: true
+#      - run:
+#          name: wait for emulator to start
+#          command: circle-android wait-for-boot
+#
+#      - run:
+#          name: disable emulator animations
+#          command: |
+#            adb shell settings put global window_animation_scale 0.0
+#            adb shell settings put global transition_animation_scale 0.0
+#            adb shell settings put global animator_duration_scale 0.0
+#
+#      - run:
+#          name: gradle connected android test
+#          command: |
+#            MAX_TRIES=2
+#            run_with_retry() {
+#               n=1
+#               until [ $n -gt $MAX_TRIES ]
+#               do
+#                  echo "Starting test attempt $n"
+#                  ./gradlew connectedAndroidTest && break
+#                  n=$[$n+1]
+#                  sleep 5
+#               done
+#               if [ $n -gt $MAX_TRIES ]; then
+#                 echo "Max tries reached ($MAX_TRIES)"
+#                 exit 1
+#               fi
+#            }
+#            run_with_retry
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -18,8 +66,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -35,6 +81,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -46,8 +98,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -65,6 +115,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -76,8 +132,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -95,6 +149,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -106,8 +166,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -125,6 +183,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -136,8 +200,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -153,6 +215,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -164,8 +232,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
@@ -181,6 +247,12 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run:
+          name: replace gradle properties
+          command: |
+            ORG_GRADLE_JVM=`cat gradle.properties | grep org.gradle.jvmargs`
+            sed -i 's/'"${ORG_GRADLE_JVM}"'/org.gradle.jvmargs=-Xmx8192m -Dfile.encoding=UTF-8/g' gradle.properties
+            cat gradle.properties | grep org.gradle.jvmargs
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -192,8 +264,6 @@ jobs:
       - save_cache:
           key: 'android-orb-v1-{{ epoch }}'
           paths:
-            - ~/.android
-            - ~/android
             - ~/.m2
             - ~/.gradle
       - run:
