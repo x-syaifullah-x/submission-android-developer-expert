@@ -1,0 +1,7 @@
+//include ':lint'
+//include ':extension'
+include ':core'
+include ':favorite'
+include ':app'
+
+rootProject.name = "Android Developer Expert"
