@@ -7,11 +7,11 @@
 * ###### Architecture Pattern
     *   ###### Use Clean Architecture
         * ###### Ui -> Framework - [:app](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/app) || [:favorite](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/favorite)
-        * ###### Presenter -> Interface Adapter - [:the_movie_db_domain](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
-        * ###### UseCase -> Application Business Rule - [:the_movie_db_domain](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
-        * ###### Entities -> Enterprise Business Rule - [:the_movie_db_domain](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
-        * ###### Repository -> Interface Adapter - [:the_movie_db_domain](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
-        * ###### DataSource -> Framework - [:the_movie_db_data](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_data)
+        * ###### Presenter -> Interface Adapter - [:core:repository](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/domain/repository)
+        * ###### UseCase -> Application Business Rule - [:core:usecase](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/domain/usecase)
+        * ###### Entities -> Enterprise Business Rule - [:core:model](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/domain/model)
+        * ###### Repository -> Interface Adapter - [:core:repository](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/domain/repository)
+        * ###### DataSource -> Framework - [:core:data](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/data)
 
 ### System Layer
 * ###### Presentation ( UI ) [- :app](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/app) || [:favorite](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/favorite)
