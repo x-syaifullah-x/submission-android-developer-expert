@@ -8,7 +8,7 @@ import com.android.developer.expert.base.adapter.HolderWithBinding
 import com.android.developer.expert.core.domain.model.base.IModel
 
 abstract class BasePagingDataAdapter<ItemBinding : ViewBinding, Model : IModel<*>> :
-    PagingDataAdapter<Model, HolderWithBinding<ItemBinding>>(Diff<Model>()) {
+    PagingDataAdapter<Model, HolderWithBinding<ItemBinding>>(Diff()) {
 
     @SuppressLint("DiffUtilEquals")
     private class Diff<Model : IModel<*>> : DiffUtil.ItemCallback<Model>() {

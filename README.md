@@ -16,17 +16,13 @@
 ### System Layer
 * ###### Presentation ( UI ) [- :app](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/app) || [:favorite](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/master/favorite)
 
-* ###### Domain ( USE CASE & Entities ) [- :the_movie_db_domain](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
+* ###### Domain ( USE CASE & Entities ) [- :core](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core/src/main/java/com/android/developer/expert/core/domain)
 
-* ###### Data ( DATA SOURCE ) [- :the_movie_db_data](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_data)
-
-* ###### DI ( Dependencies Injection ) [- :the_movie_db_di](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_di)
+* ###### Data ( DATA SOURCE ) [- :core](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_data)
 
 ### Modularization
 * ###### [:favorite - dynamic-feature](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/favorite)
-* ###### [:the_movie_db_di - android-library](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_di)
-* ###### [:the_movie_db_domain - android-library](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_domain)
-* ###### [:the_movie_db_data - android-library](https://github.com/x-syaifullah-x/android-the-movie-db/tree/master/the_movie_db_data)
+* ###### [:core - android-library](https://github.com/x-syaifullah-x/submission-android-developer-expert/tree/submission_2/core)
 
 ### Features :
 * ###### List Item Discover Movie WIth Pagging

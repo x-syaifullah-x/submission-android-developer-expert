@@ -11,43 +11,36 @@ ext.build_versions = build_versions
 
 def versions = [:]
 versions.mockito = "3.12.4"
-versions.navigation_ktx = "2.3.2"
-versions.lifecycle = "2.2.0"
+versions.navigation_ktx = "2.3.5"
+versions.lifecycle = "2.4.0"
 versions.retrofit = "2.9.0"
 versions.dagger = "2.40"
-versions.room = "2.3.0-alpha04"
+versions.room = "2.4.0-alpha04"
 versions.glide = "4.11.0"
 versions.intuit = "1.0.6"
 versions.kotlin = "1.5.31"
 versions.tools_build_gradle = "7.0.3"
 versions.ok_http_3 = "4.9.0"
-versions.lint = "27.1.2" /* versions.tools_build_gradle + 23.0.0 */
+versions.lint = "30.0.3" /* versions.tools_build_gradle + 23.0.0 */
 
 def androidx_test = [:]
 androidx_test.core = "androidx.test:core:1.3.0"
-androidx_test.ext_junit = "androidx.test.ext:junit:1.1.2"
+androidx_test.ext_junit = "androidx.test.ext:junit:1.1.3"
 androidx_test.core_testing = "androidx.arch.core:core-testing:2.1.0"
 deps.androidx_test = androidx_test
 
 def androidx = [:]
 androidx.legacy_support = "androidx.legacy:legacy-support-v4:1.0.0"
 androidx.core_ktx = "androidx.core:core-ktx:1.3.2"
-androidx.appcompat = "androidx.appcompat:appcompat:1.2.0"
-androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+androidx.appcompat = "androidx.appcompat:appcompat:1.3.1"
+androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.1"
 androidx.navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$versions.navigation_ktx"
 androidx.navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation_ktx"
 androidx.navigation_dynamic_features_fragment = "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation_ktx"
 androidx.palette_ktx = "androidx.palette:palette-ktx:1.0.0"
-androidx.paging_runtime_ktx = "androidx.paging:paging-runtime-ktx:3.0.0-alpha11"
+androidx.paging_runtime_ktx = "androidx.paging:paging-runtime-ktx:3.0.1"
 androidx.sqlite_ktx = "androidx.sqlite:sqlite-ktx:2.1.0"
 deps.androidx = androidx
-
-def lifecycle = [:]
-lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
-lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
-lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
-lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
-deps.lifecycle = lifecycle
 
 def square_up = [:]
 square_up.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -114,12 +107,19 @@ deps.databinding_compiler = "com.android.databinding:compiler:3.1.4"
 deps.shimmer_recycler_view = "com.github.sharish:ShimmerRecyclerView:v1.3"
 ext.deps = deps
 
-static def addRepos(RepositoryHandler handler) {
-    handler.google()
+def addRepos(RepositoryHandler handler) {
+    //noinspection GrDeprecatedAPIUsage
     handler.jcenter()
+    handler.google()
+    handler.mavenCentral()
     handler.maven {
-        url 'https://oss.sonatype.org/content/repositories/snapshots'
-        url 'https://jitpack.io'
+        url "https://jcenter.bintray.com"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        url "https://jitpack.io"
+    }
+    handler.mavenLocal()
+    handler.mavenLocal {
+        it.url("${rootDir}/.m2/repository")
     }
 }
 
